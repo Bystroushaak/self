@@ -501,7 +501,14 @@ traits: traits xlib display
                       X: int \
                       Y: int \
            StringVector: oop objVector \
-             = void call XDrawString16_wrap passFailHandle canAWS 
+             = void call XDrawString16_wrap passFailHandle canAWS
+
+  Display xDrawUtf8String: proxy Drawable ANY_SEAL \
+             GC: proxy GC GC_seal \
+              X: int \
+              Y: int \
+         String: string_len_null \
+      = void call Xutf8DrawString_wrap passFailHandle canAWS
 
   -- font
   Display xQueryFont: proxy Font Font_seal \
@@ -511,7 +518,6 @@ traits: traits xlib display
     	    = XFontStruct {xlib xFontStruct deadCopy} \
 	      call XLoadQueryFont_wrap passFailHandle canAWS
   Display xFreeFont: XFontStruct = void call XFreeFont canAWS
-
 
   -- image
   Display xCreateImage: Visual \
