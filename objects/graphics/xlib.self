@@ -2765,6 +2765,62 @@ SlotsToOmit: parent.
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'xlib' -> () From: ( | {
          'ModuleInfo: Module: xlib InitialContents: FollowSlot\x7fVisibility: public'
         
+         xFontSet = bootstrap setObjectAnnotationOf: bootstrap stub -> 'traits' -> 'xlib' -> 'xFontSet' -> () From: ( |
+             {} = 'ModuleInfo: Creator: traits xlib xFontSet.
+'.
+            | ) .
+        } | ) 
+
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'xlib' -> () From: ( | {
+         'ModuleInfo: Module: xlib InitialContents: InitializeToExpression: (xlib xFontSet)\x7fVisibility: public'
+        
+         wmDeleteWindow <- bootstrap stub -> 'globals' -> 'xlib' -> 'xFontSet' -> ().
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'xlib' -> () From: ( | {
+         'ModuleInfo: Module: xlib InitialContents: InitializeToExpression: (xlib xFontSet)\x7fVisibility: public'
+        
+         wmProtocols <- bootstrap stub -> 'globals' -> 'xlib' -> 'xFontSet' -> ().
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'xlib' -> 'xFontSet' -> () From: ( | {
+         'ModuleInfo: Module: xlib InitialContents: FollowSlot\x7fVisibility: private'
+        
+         parent* = bootstrap stub -> 'traits' -> 'xlib' -> 'xFontSet' -> ().
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'xlib' -> 'xFontSet' -> () From: ( | {
+         'ModuleInfo: Module: xlib InitialContents: FollowSlot\x7fVisibility: private'
+        
+         parent* = bootstrap stub -> 'traits' -> 'proxy' -> ().
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'xlib' -> 'xFontSet' -> () From: ( | {
+         'ModuleInfo: Module: xlib InitialContents: FollowSlot\x7fVisibility: private'
+        
+         whichProxy = 'xlib-xFontSet'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'xlib' -> () From: ( | {
+         'ModuleInfo: Module: xlib InitialContents: FollowSlot\x7fVisibility: public'
+        
+         xFontSet = bootstrap define: bootstrap stub -> 'globals' -> 'xlib' -> 'xFontSet' -> () ToBe: bootstrap addSlotsTo: (
+             bootstrap remove: 'parent' From:
+             globals proxy deadCopy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'xlib' -> 'xFontSet' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals xlib xFontSet.
+
+CopyDowns:
+globals proxy. deadCopy 
+SlotsToOmit: parent.
+
+\x7fIsComplete: '.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'xlib' -> () From: ( | {
+         'ModuleInfo: Module: xlib InitialContents: FollowSlot\x7fVisibility: public'
+        
          xColor = bootstrap setObjectAnnotationOf: bootstrap stub -> 'traits' -> 'xlib' -> 'xColor' -> () From: ( |
              {} = 'ModuleInfo: Creator: traits xlib xColor.
 '.

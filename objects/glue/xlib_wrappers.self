@@ -2843,6 +2843,58 @@ traits xlib display _AddSlots: ( |
     self).
 
 
+  xDrawUtf8String: t0 GC: t1 X: t2 Y: t3 String: t4  = (
+
+       xDrawUtf8String: t0 GC: t1 X: t2 Y: t3 String: t4 IfFail: 
+        [|:e| ^error: 'xDrawUtf8String:GC:X:Y:String: failed: ', e] ).
+
+  xDrawUtf8String: t0 GC: t1 X: t2 Y: t3 String: t4 IfFail: 
+    fb = (
+    |
+
+    |
+
+       _Xutf8DrawString_wrapxDrawUtf8String: t0 GC: t1 X: t2 Y: t3 
+        String: t4 IfFail: 
+        
+      [|:e| ('badTypeError'   isPrefixOf: e)
+        ||  ['deadProxyError' isPrefixOf: e]
+           ifFalse: [^fb value: e] 
+              True: [
+                  ( reviveIfFail: [|:e| ^ fb value: e]) _Xutf8DrawString_wrapxDrawUtf8String: 
+                    (t0 reviveIfFail: [|:e| ^ fb value: e]) 
+                    GC: 
+                    (t1 reviveIfFail: [|:e| ^ fb value: e]) 
+                    X: t2 asSmallInteger Y: 
+                    t3 asSmallInteger String: 
+                    t4 asVMByteVector IfFail: fb 
+           ]] .
+    self).
+
+
+  xCreateFontSet: t0  = (
+
+       xCreateFontSet: t0 IfFail: 
+        [|:e| ^error: 'xCreateFontSet: failed: ', e] ).
+
+  xCreateFontSet: t0 IfFail: fb = (
+    |
+
+    |
+
+       _XCreateFontSet_wrapxCreateFontSet: t0 ResultProxy: 
+        xlib xFontSet deadCopy IfFail: 
+        
+      [|:e| ('badTypeError'   isPrefixOf: e)
+        ||  ['deadProxyError' isPrefixOf: e]
+           ifFalse: [^fb value: e] 
+              True: [
+                  ( reviveIfFail: [|:e| ^ fb value: e]) _XCreateFontSet_wrapxCreateFontSet: t0 asVMByteVector 
+                    ResultProxy: xlib xFontSet deadCopy 
+                    IfFail: fb 
+           ]] ).
+
+
 " font  "
 
   xQueryFont: t0  = (

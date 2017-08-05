@@ -42,6 +42,7 @@ VERIFYCHECKSUM
     template(XCharStruct)						      \
     template(XColor)							      \
     template(XEvent)							      \
+    template(XFontSet)						      \
     template(XFontStruct)						      \
     template(XGCValues)							      \
     template(XImage)							      \

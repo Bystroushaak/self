@@ -510,6 +510,10 @@ traits: traits xlib display
          String: string_len_null \
       = void call Xutf8DrawString_wrap passFailHandle canAWS
 
+  Display xCreateFontSet: string_null \
+           = proxy XFontSet XFontSet_seal {xlib xFontSet deadCopy} \
+           call XCreateFontSet_wrap passFailHandle canAWS
+
   -- font
   Display xQueryFont: proxy Font Font_seal \
     	    = XFontStruct {xlib xFontStruct deadCopy} \
