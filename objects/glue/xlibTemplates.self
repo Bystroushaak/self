@@ -713,6 +713,28 @@ traits: traits xlib xFontStruct
   XFontStruct perCharWidth: int = int call perCharWidth
 
 
+
+traits: traits xlib xFontSet
+ visibility: publicSlot
+  Display xFreeFontSet: proxy XFontSet XFontSet_seal = void call XFreeFontSet
+
+
+//  Display xCreateFontSet: string_null \
+//           = proxy XFontSet XFontSet_seal {xlib xFontSet deadCopy} \
+//           call XCreateFontSet_wrap passFailHandle canAWS
+
+//  Display xDrawUtf8String: proxy Drawable ANY_SEAL \
+//             GC: proxy GC GC_seal \
+//              X: int \
+//              Y: int \
+//         String: string_len_null \
+//      = void call Xutf8DrawString_wrap passFailHandle canAWS
+
+
+//  Display xLoadQueryFont: string_null \
+//          = XFontStruct {xlib xFontStruct deadCopy} \
+//        call XLoadQueryFont_wrap passFailHandle canAWS
+
 traits: traits xlib visual
  visibility: publicSlot
   Visual xVisualIDFromVisual = int call XVisualIDFromVisual
