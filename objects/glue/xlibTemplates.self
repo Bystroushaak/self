@@ -504,11 +504,19 @@ traits: traits xlib display
              = void call XDrawString16_wrap passFailHandle canAWS
 
   Display xDrawUtf8String: proxy Drawable ANY_SEAL \
-             GC: proxy GC GC_seal \
-              X: int \
-              Y: int \
-         String: string_len_null \
-      = void call Xutf8DrawString_wrap passFailHandle canAWS
+                       GC: proxy GC GC_seal \
+                        X: int \
+                        Y: int \
+                   String: string_len_null \
+                = void call Xutf8DrawString_wrap passFailHandle canAWS
+
+  Display xUtf8DrawImageString: proxy Drawable ANY_SEAL \
+                      font_set: proxy XFontSet XFontSet_seal \
+                            GC: proxy GC GC_seal \
+                             X: int \
+                             Y: int \
+                        String: string_len_null \
+                = void call Xutf8DrawImageString canAWS
 
   Display xCreateFontSet: string_null \
            = proxy XFontSet XFontSet_seal {xlib xFontSet deadCopy} \
@@ -716,7 +724,15 @@ traits: traits xlib xFontStruct
 
 traits: traits xlib xFontSet
  visibility: publicSlot
-  Display xFreeFontSet: proxy XFontSet XFontSet_seal = void call XFreeFontSet
+//  Display xFreeFontSet: proxy XFontSet XFontSet_seal = void call XFreeFontSet
+  proxy XFontSet XFontSet_seal xBaseFontNameListOfFontSet = string call XBaseFontNameListOfFontSet canAWS
+  proxy XFontSet XFontSet_seal xLocaleOfFontSet = string call XLocaleOfFontSet canAWS
+  proxy XFontSet XFontSet_seal xContextDependentDrawing = bool call XContextDependentDrawing canAWS
+  proxy XFontSet XFontSet_seal xContextualDrawing = bool call XContextualDrawing canAWS
+  proxy XFontSet XFontSet_seal xDirectionalDependentDrawing = bool call XDirectionalDependentDrawing canAWS
+  proxy XFontSet XFontSet_seal xUtf8TextEscapement: string_len_null \
+                               = int call Xutf8TextEscapement canAWS
+
 
 
 //  Display xCreateFontSet: string_null \
